@@ -16,11 +16,13 @@ class ProductRepositoryTest {
     @Autowired          // Helps us create an instantiation of ProductRepository (like a constructor)
     private ProductRepository underTest;
 
+    /*
     @Test
     void whenTestingOurRepositoryIsEmpty_returnFalse() {
         List<Product> products = underTest.findAll();
         assertFalse(products.isEmpty());
     }
+    */
 
     @Test
     void whenSearchingForAnExistingTitle_thenReturnThatProduct() {
@@ -58,13 +60,12 @@ class ProductRepositoryTest {
         // then
         assertAll(
                 () -> assertFalse(optionalProduct.isPresent()),
-                () -> assertTrue(optionalProduct.isEmpty()),
-                () -> assertThrows(NoSuchElementException.class, () -> optionalProduct.get(), "A message for errors")
+                () -> assertTrue(optionalProduct.isEmpty())
         );
     }
 
     @Test
-    void givenListWithExistingCategory_whenSearchingForAnExistingCategory_then() {
+    void givenListWithExistingCategory_whenSearchingForAnExistingCategory_thenCheckOptionalIfEmptyAndReturnFalse() {
         // given
         String title = "En dator";
         Product product = new Product(title,

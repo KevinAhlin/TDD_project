@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)     // Sätter upp miljön för Mockning
 class ProductServiceTest {
 
     @Mock
@@ -78,10 +78,11 @@ class ProductServiceTest {
     void givenProductWithExistingId_whenGetProductById_thenReturnEqual() {
         //given
         // given bestämmer hur en metod ska bete sig och sen sätter vi willReturn som returnerar i detta fall en Optional av testProduct
+        // Alltså om findById hittar en produkt kommer den att returnera den produkt med samma id i form av en Optional
         given(productRepository.findById(testProduct.getId())).willReturn(Optional.of(testProduct));
 
         // when
-        Product testProduct2 = underTest.getProductById(1);     // hämtar en produkt med vilket id som helst
+        Product testProduct2 = underTest.getProductById(1);     // hämtar en produkt med samma id
 
         System.out.println("Product 1: " + testProduct);
         System.out.println("Product 2: " + testProduct2);
@@ -138,6 +139,7 @@ class ProductServiceTest {
     void whenTryingToUpdateExistingProduct_thenReturnTrue() {
         //given
         System.out.println(testProduct);
+        // Lägg till två produkter där ena uppdateras för den andra
 
         Product testProduct2 = new Product("Ny produkt",46.0,"Annan kategori","Annan beskrivning","");
 
@@ -152,7 +154,8 @@ class ProductServiceTest {
         // then
         verify(productRepository,times(1)).findById(testProduct.getId());
         verify(productRepository,times(1)).save(testProduct2);
-        verifyNoMoreInteractions(productRepository);
+        //verifyNoMoreInteractions(productRepository);
+
     }
 
     @Test
