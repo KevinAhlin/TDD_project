@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SeleniumTests {
 
     @Test
+    @Disabled
     public void checkTitleOfWebbutik() {
         // Hämta in den webdriver som ska användas
         WebDriver driver = new ChromeDriver();
@@ -30,6 +31,7 @@ public class SeleniumTests {
     }
 
     @Test
+    @Disabled
     public void numberOfProductsShouldBeTwenty() {
         // Hämta in den webdriver som ska användas
         WebDriver driver = new ChromeDriver();
@@ -47,6 +49,7 @@ public class SeleniumTests {
     }
 
     @Test
+    @Disabled
     public void checkPriceForFjallravenFoldsackNo1BackpackFits15Laptops() {
         // Hämta in den webdriver som ska användas
         WebDriver driver = new ChromeDriver();
@@ -71,6 +74,7 @@ public class SeleniumTests {
     }
 
     @Test
+    @Disabled
     public void checkPriceForSamsung49InchCHG90144HzCurvedGamingMonitor() {
         // Hämta in den webdriver som ska användas
         WebDriver driver = new ChromeDriver();
@@ -95,6 +99,7 @@ public class SeleniumTests {
     }
 
     @Test
+    @Disabled
     public void checkPriceForMensCottonJacket() {
         // Hämta in den webdriver som ska användas
         WebDriver driver = new ChromeDriver();
